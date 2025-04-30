@@ -1,0 +1,9 @@
+server:
+  port: 8991
+  servlet:
+    context-path: /uaa
+spring:
+  application:
+    name: universal-uaa
+
+
