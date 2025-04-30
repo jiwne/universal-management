@@ -60,7 +60,6 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.jin.java.universalManagement.UniversalManagementApplication</mainClass>
-                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
