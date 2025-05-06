@@ -5,5 +5,44 @@ server:
 spring:
   application:
     name: universal-uaa
+  profiles:
+    active: dev
 
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: ${com.jin.datasource-username}
+      password: ${com.jin.datasource-password}
+      url: jdbc:mysql://${com.jin.datasource-url}:${com.jin.datasource-port}/${com.jin.datasource-database}?characterEncoding=utf8&autoReconnect=true&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+
+    cloud:
+      nacos:
+        discovery:
+          server-addr: ${com.jin.nacos-server}
+          username: ${com.jin.nacos-username}
+          password: ${com.jin.nacos-password}
+          namespace: ${com.jin.nacos-namespace}
+
+
+#  redis:
+#    host: ${com.jin.redis-host}
+#    port: ${com.jin.redis-port}
+#    password: ${com.jin.redis-password}
+
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/*xml
+
+  type-aliases-package: com.jin.java.*.entity.*
+  configuration:
+    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
+    map-underscore-to-camel-case: true
+    # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    web: info
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
 

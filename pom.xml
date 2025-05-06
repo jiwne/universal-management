@@ -10,6 +10,7 @@
 
     <modules>
         <module>universal-uaa</module>
+        <module>universal-oauth</module>
     </modules>
 
     <packaging>pom</packaging>
